@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Randy Díaz · Retail</title>
+<meta name="description" content="Randy Díaz — Jefe de Sección y Subdirector de Tienda en retail de moda. Madrid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14213D;
+    --ink-soft: #4A5468;
+    --paper: #FFFFFF;
+    --mist: #EEF1F5;
+    --line: #D6DBE3;
+    --accent: #0F6E6E;
+    --accent-soft: #E3F1F0;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #E8ECF2;
+      --ink-soft: #A9B2C1;
+      --paper: #121826;
+      --mist: #1B2333;
+      --line: #2C3547;
+      --accent: #5CC2BC;
+      --accent-soft: #17302F;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+  html[data-lang="es"] .en, html[data-lang="en"] .es { display: none; }
+  a { color: var(--accent); text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  header.top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 0;
+  }
+  .mark { font-weight: 700; letter-spacing: -0.01em; }
+  .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .lang button {
+    font: inherit; font-size: 14px; border: 0; background: none; color: var(--ink-soft);
+    padding: 4px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+
+  .hero { padding: 56px 0 40px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
+  .photo { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 4px solid var(--mist); }
+  .hero h1 {
+    font-size: clamp(48px, 9vw, 96px); line-height: 0.95; letter-spacing: -0.035em;
+    font-weight: 800; margin: 0 0 20px;
+  }
+  .hero .role { font-size: clamp(20px, 2.6vw, 26px); font-weight: 500; margin: 0 0 12px; max-width: 30ch; }
+  .hero .meta { color: var(--ink-soft); margin: 0 0 28px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-block; padding: 12px 20px; border-radius: 8px; text-decoration: none;
+    font-weight: 500; border: 1px solid var(--ink); color: var(--ink);
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+
+  .brands {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 22px 0; margin: 8px 0 0;
+  }
+  .brands p { margin: 0 0 8px; color: var(--ink-soft); font-size: 15px; }
+  .brands ul {
+    list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap;
+    gap: 4px 36px; font-size: clamp(28px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em;
+  }
+
+  section { padding: 56px 0 8px; }
+  section > h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0 0 24px; }
+  .about p { max-width: 62ch; margin: 0 0 14px; }
+  .about .highlight {
+    background: var(--accent-soft); border-left: 4px solid var(--accent);
+    padding: 14px 18px; border-radius: 0 8px 8px 0; max-width: 62ch;
+  }
+
+  .job { display: grid; grid-template-columns: 170px 1fr; gap: 8px 32px; padding: 22px 0; border-top: 1px solid var(--line); }
+  .job:last-child { border-bottom: 1px solid var(--line); }
+  .when { color: var(--ink-soft); font-size: 15px; padding-top: 3px; }
+  .job h3 { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
+  .job .org { margin: 2px 0 8px; color: var(--ink-soft); }
+  .job p { margin: 0 0 6px; max-width: 62ch; }
+  .job ul { margin: 0; padding-left: 18px; max-width: 62ch; }
+  .job li { margin: 2px 0; }
+
+  .openings { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  .opening { background: var(--mist); border-radius: 12px; padding: 22px; }
+  .opening .year { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; margin: 0 0 10px; color: var(--accent); }
+  .opening h3 { margin: 0 0 6px; font-size: 19px; }
+  .opening p { margin: 0; color: var(--ink-soft); }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .edu { padding: 0 0 18px; }
+  .edu h3 { margin: 0; font-size: 18px; }
+  .edu p { margin: 2px 0 0; color: var(--ink-soft); }
+  .skills { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0 0 20px; }
+  .skills li { border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; font-size: 15px; }
+  h3.small { font-size: 16px; color: var(--ink-soft); font-weight: 500; margin: 0 0 10px; }
+
+  footer { padding: 64px 0 48px; }
+  .contact { background: var(--ink); color: var(--paper); border-radius: 16px; padding: 36px; }
+  .contact h2 { margin: 0 0 8px; font-size: 30px; letter-spacing: -0.02em; }
+  .contact p { margin: 0 0 20px; opacity: 0.85; }
+  .contact a { color: var(--paper); }
+  .contact .btn { border-color: var(--paper); color: var(--paper); }
+  .contact .btn.primary { background: var(--paper); color: var(--ink); }
+  .fine { color: var(--ink-soft); font-size: 14px; margin-top: 20px; }
+
+  @media (max-width: 680px) {
+    .wrap { padding: 0 16px; }
+    .job { grid-template-columns: 1fr; gap: 4px; }
+    .two { grid-template-columns: 1fr; gap: 8px; }
+    .hero { padding-top: 32px; grid-template-columns: 1fr; gap: 20px; }
+    .photo { width: 120px; height: 120px; order: -1; }
+    .contact { padding: 26px; }
+  }
+  @media print {
+    header.top .lang, .actions, footer .actions { display: none; }
+    .contact { background: none; color: var(--ink); border: 1px solid var(--line); }
+    .contact a { color: var(--ink); }
+  }
+
+  /* Fondo animado solo en la parte superior */
+  body { position: relative; overflow-x: hidden; }
+  .wrap { position: relative; z-index: 1; }
+  .aurora {
+    position: absolute; top: 0; left: 0; right: 0; height: 640px; z-index: 0;
+    overflow: hidden; pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+            mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  }
+  .aurora span {
+    position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.38;
+    animation: drift 20s ease-in-out infinite alternate;
+  }
+  .aurora .b1 { width: 520px; height: 520px; background: #9ED8D3; top: -160px; left: -120px; }
+  .aurora .b2 { width: 460px; height: 460px; background: #B8C8F5; top: -80px; right: -100px; animation-duration: 24s; animation-delay: -8s; }
+  .aurora .b3 { width: 380px; height: 380px; background: #CFE9E6; top: 220px; left: 40%; animation-duration: 28s; animation-delay: -14s; }
+  @keyframes drift {
+    0%   { transform: translate(0, 0) scale(1); }
+    50%  { transform: translate(140px, 70px) scale(1.1); }
+    100% { transform: translate(-110px, 120px) scale(0.92); }
+  }
+  @media (prefers-color-scheme: dark) {
+    .aurora span { opacity: 0.2; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aurora span { animation: none; }
+  }
+  @media (max-width: 680px) {
+    .aurora { height: 760px; }
+    .aurora span { filter: blur(50px); }
+    .aurora .b1 { width: 320px; height: 320px; }
+    .aurora .b2 { width: 280px; height: 280px; }
+    .aurora .b3 { width: 240px; height: 240px; left: 20%; }
+  }
+  @media print { .aurora { display: none; } }
+
+  .milestones { list-style: none; margin: 0; padding: 0; position: relative; max-width: 720px; }
+  .milestones::before { content: ""; position: absolute; left: 63px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .ms { display: grid; grid-template-columns: 52px 1fr; gap: 0 40px; align-items: baseline; padding: 8px 0; position: relative; }
+  .ms::before { content: ""; position: absolute; left: 59px; top: 16px; width: 10px; height: 10px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink-soft); }
+  .ms-year { font-weight: 700; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+  .ms p { margin: 0; }
+  .ms.key::before { background: var(--accent); border-color: var(--accent); width: 14px; height: 14px; left: 57px; top: 14px; }
+  .ms.key .ms-year { color: var(--accent); }
+  .ms.key p { font-weight: 700; font-size: 19px; }
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><span class="b1"></span><span class="b2"></span><span class="b3"></span></div>
+<div class="wrap">
+
+  <header class="top">
+    <span class="mark">Randy Díaz</span>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="es" aria-pressed="true">ES</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="name">
+      <div>
+      <h1 id="name">Randy Díaz</h1>
+      <p class="role">
+        <span class="es">Jefe de Sección y Subdirector de Tienda en retail de moda</span>
+        <span class="en">Department Manager and Assistant Store Manager in fashion retail</span>
+      </p>
+      <p class="meta">
+        <span class="es">Madrid · Disponibilidad inmediata</span>
+        <span class="en">Madrid · Available immediately</span>
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/diazrandy/" target="_blank" rel="noopener">
+          <span class="es">Contactar por LinkedIn</span><span class="en">Contact me on LinkedIn</span>
+        </a>
+        <a class="btn es" href="cv-randy-diaz-es.pdf" target="_blank" rel="noopener">Ver currículum (PDF)</a>
+        <a class="btn en" href="cv-randy-diaz-en.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
+      </div>
+      </div>
+      <img class="photo" src="foto-randy.jpg" alt="Randy Díaz" width="220" height="220" onerror="this.remove()">
+    </section>
+
+    <div class="brands">
+      <p><span class="es">Casi 10 años en retail con</span><span class="en">Almost 10 years in retail with</span></p>
+      <ul aria-label="Empresas">
+        <li>Zara</li><li>H&amp;M</li><li>IKEA</li><li>adidas</li><li>Apple</li>
+      </ul>
+    </div>
+
+    <section class="about" aria-labelledby="about-h">
+      <h2 id="about-h"><span class="es">Sobre mí</span><span class="en">About me</span></h2>
+      <p class="es">He gestionado secciones y he sido subdirector de tienda, liderando equipos de más de 15 personas y gestionando ventas, stock y KPIs como conversión, ticket medio y UPT.</p>
+      <p class="en">I have managed sales departments and worked as assistant store manager, leading teams of 15+ people and managing sales, stock and KPIs such as conversion, average ticket and UPT.</p>
+      <p class="es">Soy ingeniero geólogo, con título homologado en España: trabajo con datos y con orden. Me apasionan la tecnología, la programación y la IA aplicadas al retail, como la previsión de stock, el análisis de ventas y la planificación de turnos. Estudio programación en 42 Madrid, en un formato flexible que combino con el trabajo.</p>
+      <p class="en">I am a geological engineer with a degree recognised in Spain: I work with data and structure. I am passionate about technology, programming and AI applied to retail, such as stock forecasting, sales analysis and staff scheduling. I study programming at 42 Madrid, in a flexible format that fits alongside work.</p>
+      <p class="highlight">
+        <span class="es">Busco un puesto de Jefe de Sección o Subdirector de Tienda en Madrid.</span>
+        <span class="en">I am looking for a Department Manager or Assistant Store Manager role in Madrid.</span>
+      </p>
+    </section>
+
+    <section aria-labelledby="ms-h">
+      <h2 id="ms-h"><span class="es">Hitos</span><span class="en">Milestones</span></h2>
+      <ol class="milestones">
+        <li class="ms key"><span class="ms-year">2019</span><p><span class="es">Apertura de la tienda H&amp;M Mall Plaza Norte.</span><span class="en">Opening of the H&amp;M Mall Plaza Norte store.</span></p></li>
+        <li class="ms"><span class="ms-year">2021</span><p><span class="es">Planifico el calendario comercial nacional de IKEA Chile.</span><span class="en">Plan IKEA Chile's national commercial calendar.</span></p></li>
+        <li class="ms key"><span class="ms-year">2022</span><p><span class="es">Apertura de la primera tienda IKEA de Sudamérica.</span><span class="en">Opening of the first IKEA store in South America.</span></p></li>
+        <li class="ms"><span class="ms-year">2025</span><p><span class="es">Apple Puerta del Sol, una de las tiendas con más tráfico de Madrid.</span><span class="en">Apple Puerta del Sol, one of the busiest stores in Madrid.</span></p></li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="exp-h">
+      <h2 id="exp-h"><span class="es">Experiencia</span><span class="en">Experience</span></h2>
+
+      <div class="job">
+        <div class="when"><span class="es">jul 2025 – ene 2026</span><span class="en">Jul 2025 – Jan 2026</span></div>
+        <div>
+          <h3>Sales Specialist</h3>
+          <p class="org">Apple · Madrid</p>
+          <p class="es">Venta y asesoramiento en Apple Puerta del Sol, una tienda de alto tráfico.</p>
+          <p class="en">Sales and customer advice at Apple Puerta del Sol, a high-traffic store.</p>
+          <ul class="es">
+            <li>Venta a particulares y empresas: iPhone, Mac, iPad, servicios y AppleCare+.</li>
+            <li>Acompañamiento del cliente desde la detección de necesidades hasta la configuración del equipo.</li>
+          </ul>
+          <ul class="en">
+            <li>Sales to consumers and businesses: iPhone, Mac, iPad, services and AppleCare+.</li>
+            <li>Supported customers from needs assessment to device setup.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="es">may 2024 – sep 2024</span><span class="en">May 2024 – Sep 2024</span></div>
+        <div>
+          <h3>Assistant Store Manager</h3>
+          <p class="org">adidas · Santiago, Chile</p>
+          <p class="es">Subdirector de tienda oficial adidas, con un equipo de más de 15 personas.</p>
+          <p class="en">Assistant manager of an official adidas store, with a team of 15+ people.</p>
+          <ul class="es">
+            <li>Dirección de la tienda en ausencia del Store Manager: aperturas, cierres y reporting a central.</li>
+            <li>Seguimiento diario de tráfico, conversión, ticket medio y UPT.</li>
+            <li>Control de inventario y planificación de turnos según la demanda.</li>
+          </ul>
+          <ul class="en">
+            <li>Ran the store in the Store Manager's absence: opening, closing and reporting to HQ.</li>
+            <li>Daily tracking of traffic, conversion, average ticket and UPT.</li>
+            <li>Inventory control and staff scheduling based on demand.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="es">jun 2023 – dic 2023</span><span class="en">Jun 2023 – Dec 2023</span></div>
+        <div>
+          <h3><span class="es">Shopkeeper (Jefe de Sección)</span><span class="en">Shopkeeper (Department Manager)</span></h3>
+          <p class="org">IKEA · Santiago, Chile</p>
+          <ul class="es">
+            <li>Gestión de un equipo de más de 15 personas: selección, formación y turnos.</li>
+            <li>Seguimiento semanal de ventas y KPIs de la sección.</li>
+            <li>Previsión de stock y disponibilidad de producto.</li>
+          </ul>
+          <ul class="en">
+            <li>Managed a team of 15+ people: hiring, training and scheduling.</li>
+            <li>Weekly tracking of department sales and KPIs.</li>
+            <li>Stock forecasting and product availability.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="es">jul 2021 – jun 2023</span><span class="en">Jul 2021 – Jun 2023</span></div>
+        <div>
+          <h3>Commercial Activity Leader</h3>
+          <p class="org">IKEA · Santiago, Chile</p>
+          <ul class="es">
+            <li>Planificación del calendario comercial de IKEA Chile: campañas, eventos y promociones.</li>
+            <li>Coordinación de campañas nacionales en tienda y online.</li>
+            <li>Trabajo con logística para asegurar el stock de cada campaña.</li>
+          </ul>
+          <ul class="en">
+            <li>Planned IKEA Chile's commercial calendar: campaigns, events and promotions.</li>
+            <li>Coordinated national campaigns in store and online.</li>
+            <li>Worked with logistics to secure stock for each campaign.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="es">jun 2017 – jul 2021</span><span class="en">Jun 2017 – Jul 2021</span></div>
+        <div>
+          <h3><span class="es">Commercial Manager (Jefe de Sección)</span><span class="en">Commercial Manager (Department Manager)</span></h3>
+          <p class="org">H&amp;M · Santiago, Chile</p>
+          <ul class="es">
+            <li>Gestión de equipos de más de 15 personas: formación, turnos y planes de sucesión.</li>
+            <li>Análisis diario de ventas y best sellers para ajustar la presentación de producto.</li>
+            <li>Flujo de mercancía y reposición para asegurar la disponibilidad de stock.</li>
+          </ul>
+          <ul class="en">
+            <li>Managed teams of 15+ people: training, scheduling and succession plans.</li>
+            <li>Daily analysis of sales and best sellers to adjust product presentation.</li>
+            <li>Merchandise flow and replenishment to keep stock available.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="es">feb 2016 – abr 2017</span><span class="en">Feb 2016 – Apr 2017</span></div>
+        <div>
+          <h3><span class="es">Asesor de Ventas</span><span class="en">Sales Advisor</span></h3>
+          <p class="org">Zara · Santiago, Chile</p>
+          <p class="es">Venta cruzada, reposición, inventarios y caja en una tienda de alto tráfico.</p>
+          <p class="en">Cross-selling, replenishment, inventory and checkout in a high-traffic store.</p>
+        </div>
+      </div>
+
+      <div class="job">
+        <div class="when"><span class="es">abr 2011 – dic 2015</span><span class="en">Apr 2011 – Dec 2015</span></div>
+        <div>
+          <h3><span class="es">Geólogo y Petrofísico</span><span class="en">Geologist and Petrophysicist</span></h3>
+          <p class="org">PDVSA · Puerto La Cruz, Venezuela</p>
+          <p class="es">Modelos geológicos 3D a partir de datos de pozos, núcleos y sísmica, y presentación de planes de desarrollo ante la dirección.</p>
+          <p class="en">3D geological models from well, core and seismic data, and field development plans presented to senior management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="edu-h">
+      <div class="two">
+        <div>
+          <h2 id="edu-h"><span class="es">Formación</span><span class="en">Education</span></h2>
+          <div class="edu">
+            <h3>42 Madrid · Fundación Telefónica</h3>
+            <p><span class="es">Programación, Common Core · 2026 – 2028 (previsto)</span><span class="en">Programming, Common Core · 2026 – 2028 (expected)</span></p>
+          </div>
+          <div class="edu">
+            <h3>ISIE</h3>
+            <p><span class="es">Curso Universitario en Dirección Comercial y Marketing · 2025</span><span class="en">University Course in Commercial Management and Marketing · 2025</span></p>
+          </div>
+          <div class="edu">
+            <h3>Universidad de Oriente</h3>
+            <p><span class="es">Ingeniero Geólogo · título homologado en España</span><span class="en">Geological Engineer · degree recognised in Spain</span></p>
+          </div>
+        </div>
+        <div>
+          <h2><span class="es">Aptitudes</span><span class="en">Skills</span></h2>
+          <ul class="skills es">
+            <li>Gestión de tiendas</li><li>Liderazgo de equipos</li><li>Visual merchandising</li>
+            <li>KPIs de retail</li><li>Gestión de stock</li><li>Venta cruzada</li>
+            <li>Aperturas de tienda</li><li>Análisis de datos</li>
+          </ul>
+          <ul class="skills en">
+            <li>Store management</li><li>Team leadership</li><li>Visual merchandising</li>
+            <li>Retail KPIs</li><li>Stock management</li><li>Cross-selling</li>
+            <li>Store openings</li><li>Data analysis</li>
+          </ul>
+          <h3 class="small"><span class="es">Idiomas</span><span class="en">Languages</span></h3>
+          <p><span class="es">Español nativo · Inglés profesional</span><span class="en">Spanish, native · English, professional</span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contact">
+      <h2><span class="es">Hablemos</span><span class="en">Let's talk</span></h2>
+      <p><span class="es">Disponible para empezar ya en Madrid.</span><span class="en">Available to start now in Madrid.</span></p>
+      <div class="actions">
+        <a class="btn primary" href="https://www.linkedin.com/in/diazrandy/" target="_blank" rel="noopener"><span class="es">Contactar por LinkedIn</span><span class="en">Contact me on LinkedIn</span></a>
+        <a class="btn es" href="cv-randy-diaz-es.pdf" target="_blank" rel="noopener">Ver currículum (PDF)</a>
+        <a class="btn en" href="cv-randy-diaz-en.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
+        <a class="btn" href="https://github.com/diazrandy" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <p class="fine">© 2026 Randy Díaz</p>
+  </footer>
+
+</div>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var buttons = document.querySelectorAll('.lang button');
+    function setLang(l) {
+      root.setAttribute('data-lang', l);
+      root.setAttribute('lang', l);
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.set === l)); });
+      try { localStorage.setItem('lang', l); } catch (e) {}
+    }
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    var guess = saved || ((navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en');
+    setLang(guess);
+    buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.set); }); });
+  })();
+</script>
+</body>
+</html>
