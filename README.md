@@ -12,9 +12,7 @@ This project serves as my digital portfolio and interactive resume. It outlines 
 * **Responsive Design:** Optimized for reading across different devices and screen sizes.
 
 ## 👨‍💻 About the Author
-I am a Retail Operations professional based in Madrid, Spain, seeking Department Manager or Assistant Store Manager roles. 
-
-As a Geological Engineer with a degree recognized in Spain, I apply a highly structured and data-driven approach to retail management. Currently, I am enrolled in the Common Core software engineering program at **42 Madrid** (Fundación Telefónica). I am passionate about applying technology, data science, and Artificial Intelligence to retail environments to optimize stock forecasting, sales analysis, and commercial planning.
+I am a Retail Operations professional based in Madrid, Spain. As a Geological Engineer with a degree recognized in Spain, I apply a highly structured and data-driven approach to retail management. Currently, I am enrolled in the Common Core software engineering program at **42 Madrid** Fundación Telefónica. I am passionate about applying technology, data science, and Artificial Intelligence to retail environments to optimize stock forecasting, sales analysis, and commercial planning.
 
 ## 🔗 Links & Contact
 * **Live Website:** [https://diazrandy.github.io](https://diazrandy.github.io)
