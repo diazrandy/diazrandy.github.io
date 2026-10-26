@@ -49,7 +49,9 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Fraunces:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Fraunces:ital,wght@1,500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Fraunces:ital,wght@1,500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Fraunces:ital,wght@1,500&display=swap"></noscript>
 <style>
 :root{--ink:#14213D;--ink-soft:#4A5468;--paper:#FFFFFF;--mist:#F1F4F8;--line:#D9DEE6;--accent:#0F6E6E;--accent-soft:#E3F1F0;--warm:#D9822B}
 @media (prefers-color-scheme:dark){:root{--ink:#E8ECF2;--ink-soft:#A9B2C1;--paper:#0F1522;--mist:#182032;--line:#2A3448;--accent:#5CC2BC;--accent-soft:#16302F;--warm:#F0A55A}}
@@ -75,8 +77,9 @@ header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--p
 .wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 24px}
 .hero{padding:48px 0 36px;display:grid;grid-template-columns:1fr auto;gap:36px;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:5px 14px;font-size:14px;color:var(--ink-soft);margin:0 0 22px}
-.pill i{width:8px;height:8px;border-radius:50%;background:#2FB36B;box-shadow:0 0 0 0 rgba(47,179,107,.6);animation:pulse 2s infinite}
-@keyframes pulse{70%{box-shadow:0 0 0 9px rgba(47,179,107,0)}100%{box-shadow:0 0 0 0 rgba(47,179,107,0)}}
+.pill i{position:relative;width:8px;height:8px;border-radius:50%;background:#2FB36B}
+.pill i::after{content:"";position:absolute;inset:0;border-radius:50%;background:#2FB36B;animation:ping 2s infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.6}70%,100%{transform:scale(3.2);opacity:0}}
 .hero h1{font-size:clamp(20px,3vw,26px);font-weight:700;letter-spacing:-.01em;margin:0 0 10px}
 .lead{font-size:clamp(34px,6.4vw,66px);line-height:1.02;letter-spacing:-.035em;font-weight:800;margin:0 0 20px}
 .hero .role{font-size:clamp(17px,2.2vw,20px);color:var(--ink-soft);margin:0 0 26px;max-width:46ch}
@@ -149,7 +152,7 @@ footer{padding:64px 0 48px}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
 .rv.in{opacity:1;transform:none}
 @media (max-width:760px){.wrap{padding:0 16px}.hin{padding:10px 16px}.hin nav{display:none}.job summary{grid-template-columns:1fr 30px;gap:4px 12px}.job .when{grid-column:1/-1}.job .body{padding:0 4px 20px}.two{grid-template-columns:1fr;gap:8px}.hero{padding-top:28px;grid-template-columns:1fr;gap:22px}.ph{width:128px;height:128px;order:-1}.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.contact{padding:28px}.bg{height:900px}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.btn,.card{transition:none}.tick ul,.ph::before,.pill i{animation:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.btn,.card{transition:none}.tick ul,.ph::before,.pill i::after{animation:none}}
 @media print{.bg,.lang,.actions,.prog,.tick,header.top{display:none}.rv{opacity:1;transform:none}.contact{background:none;color:var(--ink);border:1px solid var(--line)}}
 </style>
 </head>
@@ -175,7 +178,7 @@ footer{padding:64px 0 48px}
 <a class="btn en" href="cv-randy-diaz-en.pdf" target="_blank" rel="noopener">View resume (PDF)</a>
 </div>
 </div>
-<div class="ph"><picture><source srcset="foto-randy.webp" type="image/webp"><img class="photo" src="foto-randy.jpg" alt="Randy Díaz, profesional de retail en Madrid" width="220" height="220" fetchpriority="high"></picture></div>
+<div class="ph"><picture><source srcset="foto-randy-240.webp 240w, foto-randy.webp 440w" sizes="(max-width:760px) 128px, 220px" type="image/webp"><img class="photo" src="foto-randy.jpg" alt="Randy Díaz, profesional de retail en Madrid" width="220" height="220" fetchpriority="high" decoding="async"></picture></div>
 </section>
 <ul class="stats" aria-label="Datos clave">
 <li><b data-to="10" data-suf="+">10+</b><span class="es">años en retail</span><span class="en">years in retail</span></li>
@@ -299,7 +302,7 @@ x.globalAlpha=al[k];x.strokeStyle=A;x.lineWidth=lw[k];x.stroke();
 if(k===0){x.lineTo(W,H);x.lineTo(0,H);x.closePath();var gr=x.createLinearGradient(0,0,0,H*.8);gr.addColorStop(0,A);gr.addColorStop(1,'transparent');x.globalAlpha=.10;x.fillStyle=gr;x.fill()}}
 if(mx>=0&&mx<W){var yy=Y(0,mx);x.globalAlpha=.3;x.strokeStyle=A;x.lineWidth=1;x.setLineDash([4,5]);x.beginPath();x.moveTo(mx,0);x.lineTo(mx,H);x.stroke();x.setLineDash([]);
 x.globalAlpha=.18;x.fillStyle=A;x.beginPath();x.arc(mx,yy,12,0,6.283);x.fill();x.globalAlpha=.9;x.beginPath();x.arc(mx,yy,4,0,6.283);x.fill()}}
-function loop(){t+=.016;draw();raf=requestAnimationFrame(loop)}
+function loop(){t+=.016;if(scrollY<H+120)draw();raf=requestAnimationFrame(loop)}
 function start(){cancelAnimationFrame(raf);if(still)draw();else loop()}
 col();size();start();
 addEventListener('resize',function(){size();start()});
