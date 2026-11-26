@@ -104,6 +104,16 @@ header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--p
 section{padding:60px 0 8px}
 section>h2,.two h2{font-size:30px;letter-spacing:-.025em;margin:0 0 24px}
 .about p{max-width:none;margin:0 0 16px}
+.recs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.rec{position:relative;background:var(--mist);border:1px solid var(--line);border-radius:16px;padding:26px 24px 22px;display:flex;flex-direction:column;justify-content:space-between}
+.rec::before{content:"\201C";position:absolute;top:2px;left:18px;font-family:Fraunces,Georgia,serif;font-size:64px;line-height:1;color:var(--accent);opacity:.5}
+.rec blockquote{margin:22px 0 16px;font-size:16.5px;line-height:1.55}
+.rec .who{font-weight:700;margin:0}.rec .rel{color:var(--ink-soft);font-size:14.5px;margin:2px 0 0}
+.rec .tr{margin:-6px 0 14px;font-size:13px;color:var(--ink-soft)}
+.more{margin:18px 0 0}
+.note{color:var(--ink-soft);font-size:14.5px;margin:-12px 0 18px}
+.about .cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about .q{font-size:clamp(24px,2.8vw,32px);margin:24px 0 0}
 .q{margin:26px 0;padding:0;font-size:clamp(24px,3.6vw,34px);line-height:1.15;letter-spacing:-.02em;font-weight:800;max-width:none}
 .about .highlight{background:var(--accent-soft);border-left:4px solid var(--accent);padding:14px 18px;border-radius:0 10px 10px 0;max-width:none;font-weight:500}
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -152,6 +162,7 @@ footer{padding:64px 0 48px}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
 .rv.in{opacity:1;transform:none}
 @media (min-width:761px){.about p,.job .body li{text-align:justify;text-justify:inter-word;hyphens:none;-webkit-hyphens:none;text-wrap:pretty}.about .highlight{text-align:left}}
+@media (max-width:860px){.about .cols{grid-template-columns:1fr;gap:0}}
 @media (max-width:760px){.wrap{padding:0 16px}.hin{padding:10px 16px}.hin nav{display:none}.job summary{grid-template-columns:1fr 30px;gap:4px 12px}.job .when{grid-column:1/-1}.job .body{padding:0 4px 20px}.two{grid-template-columns:1fr;gap:8px}.hero{padding-top:28px;grid-template-columns:1fr;gap:22px}.ph{width:128px;height:128px;order:-1}.stats{grid-template-columns:repeat(2,1fr)}.cards{grid-template-columns:1fr}.contact{padding:28px}.bg{height:900px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.btn,.card{transition:none}.tick ul,.ph::before,.pill i::after{animation:none}}
 @media print{.bg,.lang,.actions,.prog,.tick,header.top{display:none}.rv{opacity:1;transform:none}.contact{background:none;color:var(--ink);border:1px solid var(--line)}}
@@ -193,14 +204,18 @@ footer{padding:64px 0 48px}
 </ul></div>
 <section class="about rv" aria-labelledby="about-h">
 <h2 id="about-h"><span class="es">Sobre mí</span><span class="en">About me</span></h2>
+<div class="cols">
+<div>
 <p class="es">Entiendo el retail de forma completa: lo que pasa en el suelo de tienda, en los números y en la mente del cliente. Por eso trabajo a la vez con tres palancas: <em>personas</em>, <em>análisis</em> y <em>comercialidad</em>.</p>
 <p class="en">I understand retail as a whole: what happens on the shop floor, in the numbers and in the customer's mind. That is why I work with three levers at once: <em>people</em>, <em>analysis</em> and <em>commercial</em>.</p>
-<p class="es"><b>Personas.</b> Una tienda es tan buena como el equipo que la hace funcionar. He liderado equipos de más de 15 personas, formado talento y preparado planes de sucesión. <b>Análisis.</b> Decido con números qué reponer, dónde reforzar al equipo y qué campaña mover, con seguimiento diario de tráfico, conversión, ticket medio, UPT y stock. <b>Comercialidad.</b> Planifico el calendario comercial, coordino campañas omnicanal con logística y producto, y he participado en aperturas emblemáticas.</p>
-<p class="en"><b>People.</b> A store is only as good as the team that runs it. I have led teams of 15+ people, developed talent and prepared succession plans. <b>Analysis.</b> I decide with numbers what to replenish, where to reinforce the team and which campaign to push, tracking traffic, conversion, average ticket, UPT and stock daily. <b>Commercial.</b> I plan the commercial calendar, coordinate omnichannel campaigns with logistics and product, and have taken part in landmark store openings.</p>
 <blockquote class="q"><span class="es">Mi mejor indicador: ver <em>crecer</em> a mi equipo.</span><span class="en">My best KPI: watching my team <em>grow</em>.</span></blockquote>
+</div>
+<div>
 <p class="es">Hoy estudio programación en 42 Madrid (C, Python, Git y Linux) y análisis de datos para aplicar automatización y datos a stock, ventas y turnos, sumando tecnología a lo que mejor sé hacer: dirigir tiendas y desarrollar equipos.</p>
 <p class="en">Today I study programming at 42 Madrid (C, Python, Git and Linux) and data analysis to apply automation and data to stock, sales and scheduling, adding technology to what I do best: running stores and developing teams.</p>
 <p class="highlight"><span class="es">Abierto a nuevas oportunidades como Jefe de Sección o Subdirector de Tienda en Madrid.</span><span class="en">Open to new opportunities as Department Manager or Assistant Store Manager in Madrid.</span></p>
+</div>
+</div>
 </section>
 <section class="rv" id="work" aria-labelledby="work-h">
 <h2 id="work-h"><span class="es">Resultados seleccionados</span><span class="en">Selected results</span></h2>
@@ -214,10 +229,16 @@ footer{padding:64px 0 48px}
 <section class="rv" aria-labelledby="th-h">
 <h2 id="th-h"><span class="es">Cómo trabajo</span><span class="en">How I work</span></h2>
 <div class="thread">
-<div class="step"><p class="n"><span class="es">Personas primero</span><span class="en">People first</span></p><h3><span class="es">Equipos que crecen</span><span class="en">Teams that grow</span></h3><p><span class="es">Selección, formación, turnos y planes de sucesión. Cada persona sabe qué se espera de ella y tiene ganas de dar más.</span><span class="en">Hiring, training, scheduling and succession plans. Everyone knows what is expected and wants to do more.</span></p></div>
-<div class="step"><p class="n"><span class="es">Análisis</span><span class="en">Analysis</span></p><h3><span class="es">Decisiones con datos</span><span class="en">Data-driven decisions</span></h3><p><span class="es">Seguimiento diario de tráfico, conversión, ticket medio, UPT y stock, para decidir a tiempo y compartirlo con el equipo.</span><span class="en">Daily tracking of traffic, conversion, average ticket, UPT and stock, to decide on time and share it with the team.</span></p></div>
-<div class="step"><p class="n"><span class="es">Comercialidad</span><span class="en">Commercial</span></p><h3><span class="es">Omnicanal, listo cada día</span><span class="en">Omnichannel, ready every day</span></h3><p><span class="es">Calendario comercial, campañas en tienda y online, stock y producto bien presentado, coordinando con logística.</span><span class="en">Commercial calendar, store and online campaigns, stock and well-presented product, coordinating with logistics.</span></p></div>
+<div class="step"><p class="n"><span class="es">Personas primero</span><span class="en">People first</span></p><h3><span class="es">Equipos que crecen</span><span class="en">Teams that grow</span></h3><p><span class="es">Equipos de más de 15 personas: selección, formación, turnos y planes de sucesión. Cada persona sabe qué se espera de ella y tiene ganas de dar más.</span><span class="en">Teams of 15+ people: hiring, training, scheduling and succession plans. Everyone knows what is expected and wants to do more.</span></p></div>
+<div class="step"><p class="n"><span class="es">Análisis</span><span class="en">Analysis</span></p><h3><span class="es">Decisiones con datos</span><span class="en">Data-driven decisions</span></h3><p><span class="es">Decido con números qué reponer, dónde reforzar al equipo y qué campaña mover, con seguimiento diario de tráfico, conversión, ticket medio, UPT y stock.</span><span class="en">I decide with numbers what to replenish, where to reinforce the team and which campaign to push, tracking traffic, conversion, average ticket, UPT and stock daily.</span></p></div>
+<div class="step"><p class="n"><span class="es">Comercialidad</span><span class="en">Commercial</span></p><h3><span class="es">Omnicanal, listo cada día</span><span class="en">Omnichannel, ready every day</span></h3><p><span class="es">Calendario comercial, campañas en tienda y online, stock y producto bien presentado, coordinando con logística. Parte de aperturas emblemáticas.</span><span class="en">Commercial calendar, store and online campaigns, stock and well-presented product, coordinating with logistics. Part of landmark store openings.</span></p></div>
 </div>
+</section>
+<section class="rv" id="recomendaciones" aria-labelledby="rec-h">
+<h2 id="rec-h"><span class="es">Recomendaciones</span><span class="en">Recommendations</span></h2>
+<p class="en note">Shown in their original language (Spanish), from my LinkedIn profile.</p>
+<div class="recs"><div class="rec"><blockquote lang="es">Su capacidad para liderar la Gestión de Operaciones de Gran Escala y optimizar procesos lo convierte en un profesional clave para impulsar resultados concretos y estratégicos. Es un líder comprometido, ordenado y un gran activo para cualquier equipo, puede lograr las metas y mantener motivados a los equipos a su cargo.</blockquote><div><p class="who">Mayra Alejandra Patiño Santiago</p><p class="rel"><span class="es">Gerente de ventas y compras · supervisó directamente a Randy · jun. 2026</span><span class="en">Sales and purchasing manager · directly supervised Randy · Jun. 2026</span></p></div></div><div class="rec"><blockquote lang="es">Trabajé con Randy desde que llegué a IKEA. Tengo que mencionar que es un excelente compañero y líder. Resolutivo y anticipado a las jugadas. Muy organizado y eficiente. Con habilidades blandas y tremenda gestión de equipos. Siempre dispuesto a ayudar y enseñar. Una persona analítica, con vasto conocimiento en las áreas que se desenvuelve y con gran visión comercial.</blockquote><div><p class="who">Marlene Pérez Moya</p><p class="rel"><span class="es">Sales Team Leader, IKEA Chile · Randy la supervisó · ago. 2025</span><span class="en">Sales Team Leader, IKEA Chile · reported to Randy · Aug. 2025</span></p></div></div><div class="rec"><blockquote lang="es">Randy es una persona con un fuerte sentido de liderazgo y colaboración con colegas directos, entendí esto en el año que fui su manager directo. […] Muy estructurado, siempre es capaz de facilitar la búsqueda de soluciones a problemas basados en hechos.</blockquote><div><p class="who">Claudio Mambretti</p><p class="rel"><span class="es">Gerente de venta · Retail · supervisó directamente a Randy · sep. 2023</span><span class="en">Sales manager · Retail · directly supervised Randy · Sep. 2023</span></p></div></div></div>
+<p class="more"><a href="https://www.linkedin.com/in/diazrandy/details/recommendations/" target="_blank" rel="noopener"><span class="es">Ver todas en LinkedIn →</span><span class="en">See all on LinkedIn →</span></a></p>
 </section>
 <section class="rv" id="experiencia" aria-labelledby="exp-h"><h2 id="exp-h" data-n="04"><span class="es">Experiencia</span><span class="en">Experience</span></h2>
 <details class="job" open><summary><span class="when"><span class="es">jul 2025 – ene 2026</span><span class="en">Jul 2025 – Jan 2026</span></span><span class="ttl"><h3>Sales Specialist</h3><p class="org">Apple · Madrid</p></span></summary><div class="body"><ul class="es"><li>Asesoré y vendí a particulares y empresas (iPhone, Mac, iPad, servicios y AppleCare+) en Apple Puerta del Sol, la tienda insignia de Apple en España.</li><li>Acompañé al cliente desde la detección de necesidades hasta la configuración del equipo.</li><li>Coordiné con soporte técnico para resolver incidencias en picos de afluencia sin perder calidad de servicio.</li></ul><ul class="en"><li>Advised and sold to consumers and businesses (iPhone, Mac, iPad, services and AppleCare+) at Apple Puerta del Sol, Apple's flagship store in Spain.</li><li>Supported customers from needs assessment to device setup.</li><li>Worked with technical support to solve issues at peak times without losing service quality.</li></ul></div></details>
